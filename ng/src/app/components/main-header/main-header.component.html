@@ -1,0 +1,13 @@
+<header id="main-header">
+    <nav>
+        <ul>
+            <li><a [routerLink]="['/']">Home</a></li>
+            <li><a *ngIf="!isLoggedIn"[routerLink]="['/auth/login']">Login</a></li>
+            <li><a *ngIf="!isLoggedIn" [routerLink]="['/auth/register']">Register</a></li>
+            <div *ngIf="isLoggedIn">
+                <app-logout></app-logout>
+                <a [routerLink]="['/dashboard']">my dashboard</a>
+            </div>
+        </ul>
+    </nav>
+</header>

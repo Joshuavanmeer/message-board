@@ -1,0 +1,10 @@
+.error {
+    position: absolute;
+    color: red;
+}
+
+
+.success {
+    position: absolute;
+    color: green;
+}
