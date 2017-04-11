@@ -8,7 +8,7 @@ import {AuthenticationService} from "../authentication/authentication.service";
 export class DiscussionService {
 
 
-    private discussions: Discussion[] = [];
+    discussions: Discussion[] = [];
 
 
     constructor(

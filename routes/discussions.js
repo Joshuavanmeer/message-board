@@ -27,8 +27,9 @@ router.post('/new-discussion', function (req, res, next) {
     var discussion = new Discussion({
         title: req.body.title,
         body: req.body.body,
-        comments: req.body.comments,
-        user: req.body.userId
+        userId: req.body.userId,
+        username: req.body.username,
+        comments: req.body.comments
     });
     discussion.save(function (err, discussionResult) {
         if (err) {

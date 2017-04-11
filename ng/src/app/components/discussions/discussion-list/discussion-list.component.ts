@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Discussion } from "../models/discussion.model";
+import {DiscussionService} from "../discussion.service";
 
 @Component({
   selector: 'app-discussion-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiscussionListComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+    discussions: Discussion[] = [];
+
+
+    constructor(
+        private discussionService: DiscussionService
+    ) { }
+
+
+    ngOnInit() {
+        this.discussions = this.discussionService.discussions;
+    }
 
 }

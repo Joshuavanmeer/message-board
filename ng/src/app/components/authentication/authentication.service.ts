@@ -30,6 +30,16 @@ export class AuthenticationService {
     // stored in localstorage
     checkAuthenticationState() {
         if (localStorage.getItem('jwt')) {
+            const storedUserData = JSON.parse(localStorage.getItem('user'));
+            this.user = new User(
+                storedUserData.email,
+                null,
+                storedUserData.userId,
+                storedUserData.name,
+                storedUserData.username
+            );
+            // informs subscribed authguards and
+            // services that the user is logged in
             this.isLoggedInSource.next(true);
         }
     }
