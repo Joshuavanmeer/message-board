@@ -79,13 +79,15 @@ export class AuthenticationService {
                 res => {
                     localStorage.setItem('jwt', res.token);
                     localStorage.setItem('user', JSON.stringify(res.user));
-                    localStorage.setItem('userId', res.user.userId);
+                    // localStorage.setItem('userId', res.user.userId);
                     this.user = new User(
                         userCredentials.email,
                         null,
+                        res.user.userId,
                         res.user.name,
                         res.user.username
                     );
+                    console.log(res.user.userId);
                     this.authToken = res.token;
                     this.notificationService.showFlashMessage(
                         new FlashMessage(

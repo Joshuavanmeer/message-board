@@ -12,7 +12,7 @@ var schema = new Schema({
 // prevents duplicate email addresses
 schema.plugin(uniqueValidator, { type: 'not unique' });
 
-module.exports = mongoose.model('user', schema);
+module.exports = mongoose.model('User', schema);
 
 
 

@@ -1,0 +1,9 @@
+<h1>Make a new message</h1>
+
+<form novalidate autocomplete="off" [formGroup]="discussionForm" (ngSubmit)="addNewDiscussion()">
+    <label for="title">Message title</label>
+    <input type="input" id="title" formControlName="messageTitle">
+    <label for="body">More about your message</label>
+    <input type="text" id="body" formControlName="messageBody">
+    <button type="submit">Post new message</button>
+</form>

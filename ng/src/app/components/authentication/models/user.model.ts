@@ -4,19 +4,13 @@ export class User {
 
         public email: string,
         public password: string,
+        public userId?: string,
         public name?: string,
         public username?: string
 
     ) {}
 
-    getDetails() {
-        return {
-            name: this.email,
-            username: this.email,
-            email: this.email,
-            password: this.password
-        }
-    }
+
 
 }
 

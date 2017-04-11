@@ -17,7 +17,8 @@ import { AuthenticationRoutingModule } from "./authentication.routing.module";
         ReactiveFormsModule,
         AuthenticationRoutingModule
     ],
-    providers: []
+    providers: [
+    ]
 })
 
 export class AuthenticationModule { }
