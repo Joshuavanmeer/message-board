@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from "./components/authentication/authentication.service";
-import { DiscussionService } from "./components/discussions/discussion.service";
+import { DiscussionsService } from "./components/discussions/discussions.service";
 
 @Component({
   selector: 'app-root',
@@ -10,13 +10,13 @@ import { DiscussionService } from "./components/discussions/discussion.service";
 export class AppComponent implements OnInit {
 
     constructor(
-        private discussionService: DiscussionService,
+        private discussionsService: DiscussionsService,
         private authenticationService: AuthenticationService
     ) {}
 
     ngOnInit() {
         // retreive messages from db
-        this.discussionService.getDiscussions();
+        this.discussionsService.getDiscussions();
         // check if already have a valid jsonwebtoken n localstorage
         this.authenticationService.checkAuthenticationState();
     }

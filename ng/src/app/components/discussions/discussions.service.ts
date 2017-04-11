@@ -7,7 +7,7 @@ import { FlashMessage } from "../notifications/models/flashmessage.model";
 import { Router } from "@angular/router";
 
 @Injectable()
-export class DiscussionService {
+export class DiscussionsService {
 
     // private discussionsSource: BehaviorSubject<any> = new BehaviorSubject(null);
     // discussions$ = this.discussionsSource.asObservable();

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Discussion } from "../models/discussion.model";
 import { AuthenticationService } from "../../authentication/authentication.service";
-import { DiscussionService } from "../discussion.service";
+import { DiscussionsService } from "../discussions.service";
 
 @Component({
   selector: 'app-discussion-creator',
@@ -17,7 +17,7 @@ export class DiscussionCreatorComponent implements OnInit {
 
     constructor (
         private formBuilder: FormBuilder,
-        private discussionService: DiscussionService,
+        private discussionsService: DiscussionsService,
         private authenticationService: AuthenticationService
     ) {}
 
@@ -30,7 +30,7 @@ export class DiscussionCreatorComponent implements OnInit {
                 0,
                 this.authenticationService.user.username
             );
-            this.discussionService.addNewDiscussion(discussion);
+            this.discussionsService.addNewDiscussion(discussion);
         }
     }
 

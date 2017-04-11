@@ -1,20 +1,22 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { DiscussionComponent } from "./discussion/discussion.component";
 import { DiscussionListComponent } from "./discussion-list/discussion-list.component";
+import { SharedModule } from "../shared/shared.module";
+import { DiscussionsComponent } from "./discussions.component";
 
 
 @NgModule({
     declarations: [
-        DiscussionComponent,
+        DiscussionsComponent,
         DiscussionListComponent
     ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        SharedModule
     ],
     providers: []
 })
 
-export class DiscussionModule {}
+export class DiscussionsModule {}

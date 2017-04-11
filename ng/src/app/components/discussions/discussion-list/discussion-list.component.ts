@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import { Discussion } from "../models/discussion.model";
-import { DiscussionService } from "../discussion.service";
+import { DiscussionsService } from "../discussions.service";
 
 @Component({
   selector: 'app-discussion-list',
@@ -10,16 +10,16 @@ import { DiscussionService } from "../discussion.service";
 export class DiscussionListComponent implements OnInit {
 
 
-    discussions: Discussion[] = [];
+    @Input() discussions: Discussion[];
 
 
     constructor(
-        private discussionService: DiscussionService
+        private discussionsService: DiscussionsService
     ) { }
 
 
     ngOnInit() {
-        this.discussions = this.discussionService.discussions;
+
     }
 
 }
