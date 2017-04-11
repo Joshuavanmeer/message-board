@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var bcrypt = require('bcryptjs');
 var User = require('../models/user.mong.model');
 var Discussion = require('../models/discussion.mong.model');
 var config = require('../config/database');
@@ -10,7 +9,20 @@ var jwt = require('jsonwebtoken');
 
 router.get('/', function (req, res, next) {
     Discussion.find()
-        .populate()
+        .populate('user', 'username')
+        .exec(function (err, docs) {
+            if (err) {
+                return res.status(401).json({
+                    message: 'not authorized to proceed on route',
+                    error: err
+                });
+            }
+            res.status(201).json({
+                type: 'success',
+                discussions: docs,
+                message: 'succesfully created a new discussion'
+            });
+        });
 });
 
 
@@ -67,11 +79,6 @@ router.post('/new-discussion', function (req, res, next) {
         });
     });
 });
-
-
-
-
-
 
 
 

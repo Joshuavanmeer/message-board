@@ -27,7 +27,8 @@ export class DiscussionCreatorComponent implements OnInit {
             const discussion = new Discussion(
                 this.discussionForm.value.messageTitle,
                 this.discussionForm.value.messageBody,
-                0
+                0,
+                this.authenticationService.user.username
             );
             this.discussionService.addNewDiscussion(discussion);
         }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Discussion } from "../models/discussion.model";
-import {DiscussionService} from "../discussion.service";
+import { DiscussionService } from "../discussion.service";
 
 @Component({
   selector: 'app-discussion-list',

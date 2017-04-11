@@ -9,7 +9,8 @@ import { Router } from "@angular/router";
 @Injectable()
 export class DiscussionService {
 
-
+    // private discussionsSource: BehaviorSubject<any> = new BehaviorSubject(null);
+    // discussions$ = this.discussionsSource.asObservable();
     discussions: Discussion[] = [];
 
 
@@ -20,11 +21,25 @@ export class DiscussionService {
         private router: Router
     ) { }
 
+
     // retrieves discussion data from db
     getDiscussions() {
-        // this.discussions = this.httpService.get([])
+        this.httpService.get(['http://localhost:3000/discussions/'])
+            .subscribe(res => {
+                res.discussions.forEach(discussion => {
+                    this.discussions.unshift(
+                        new Discussion(
+                            discussion.title,
+                            discussion.body,
+                            discussion.comments,
+                            discussion.user.username,
+                            discussion.user._id,
+                            discussion._id
+                        )
+                    );
+                });
+            });
     }
-
 
 
     addNewDiscussion(discussion: Discussion) {
@@ -33,8 +48,7 @@ export class DiscussionService {
             .subscribe(
                 res => {
                     discussion.discussionId = res.discussion._id;
-                    discussion.username = res.discussion.user.username;
-                    this.discussions.push(discussion);
+                    this.discussions.unshift(discussion);
                     this.notificationService.showFlashMessage(
                         new FlashMessage(
                             res.type,

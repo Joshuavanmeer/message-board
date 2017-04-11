@@ -6,6 +6,7 @@ export class Discussion {
         public body: string,
         public comments: number,
         public username?: string,
+        public userId?: string,
         public discussionId?: string
     ) {}
 

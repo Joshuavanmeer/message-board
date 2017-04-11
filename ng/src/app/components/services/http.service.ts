@@ -10,9 +10,9 @@ export class HttpService {
 
 
 
-    get(urlPieces: string[], headers): Observable<any> {
+    get(urlPieces: string[], headers?): Observable<any> {
         const url = this.parseUrl(urlPieces);
-        return this.http.post(url, headers || this.headers)
+        return this.http.get(url, headers || this.headers)
             .map(res => res.json())
             .catch((err) => Observable.throw(err.json()));
     }
