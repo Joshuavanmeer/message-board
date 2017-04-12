@@ -11,6 +11,7 @@ export class DiscussionsComponent implements OnInit {
 
 
     private discussions: Discussion[];
+    private filteredDiscussions: Discussion[];
     private activePage: number = 0;
 
 
@@ -20,7 +21,7 @@ export class DiscussionsComponent implements OnInit {
 
 
     ngOnInit() {
-        this.discussions = this.discussionsService.discussions;
+        this.filteredDiscussions= this.discussionsService.discussions;
     }
 
 }

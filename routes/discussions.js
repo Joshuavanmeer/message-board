@@ -9,6 +9,8 @@ var jwt = require('jsonwebtoken');
 
 router.get('/', function (req, res, next) {
     Discussion.find()
+        .sort('-dates.created')
+        .limit(5)
         .populate('user', 'username')
         .exec(function (err, docs) {
             if (err) {
@@ -24,6 +26,8 @@ router.get('/', function (req, res, next) {
             });
         });
 });
+
+
 
 
 

@@ -24,10 +24,10 @@ export class DiscussionsService {
 
     // retrieves discussion data from db
     getDiscussions() {
-        this.httpService.get(['http://localhost:3000/discussions/'])
+        this.httpService.get(['http://localhost:3000/discussions'])
             .subscribe(res => {
                 res.discussions.forEach(discussion => {
-                    this.discussions.unshift(
+                    this.discussions.push(
                         new Discussion(
                             discussion.title,
                             discussion.body,
@@ -40,6 +40,15 @@ export class DiscussionsService {
                 });
             });
     }
+
+
+    // getAmountOfDiscussions(): Discussion[] {
+    //     return
+    // }
+
+    // be able to retrieve a number of discussions
+    // be able to
+
 
 
     addNewDiscussion(discussion: Discussion) {
