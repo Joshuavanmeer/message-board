@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DiscussionsService} from "./discussions.service";
-import {Discussion} from "./models/discussion.model";
+import { DiscussionsService } from "./discussions.service";
+import { Discussion } from "./models/discussion.model";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-discussions',
@@ -19,25 +20,45 @@ export class DiscussionsComponent implements OnInit {
 
 
     constructor(
-        private discussionsService: DiscussionsService
+        private discussionsService: DiscussionsService,
+        private router: Router,
+        private route: ActivatedRoute
     ) { }
 
 
     getPageNumber(pageNumber: number) {
         if (this.activePage === pageNumber) { return false; }
         this.activePage = pageNumber;
-        this.discussionsService.getDiscussionsByRange(pageNumber * this.itemsPerPage, this.itemsPerPage);
+        this.router.navigate(['/'], { queryParams: {page:pageNumber}});
+    }
+
+
+    initDiscussionsData() {
+        const skip = this.activePage > 0 ? this.activePage * this.itemsPerPage : 0;
+        this.discussionsService.getDiscussionsByRange(skip, this.itemsPerPage);
+    }
+
+
+    initDiscussionsTotal() {
+        this.discussionsService.getTotalDiscussions();
     }
 
 
     ngOnInit() {
 
+        // keeps an eye on parameter changes
+        this.route.queryParams.subscribe(param => {
+            this.activePage = param.page;
+            this.initDiscussionsData();
+        });
+
+
         // kickstart
-        this.discussionsService.getDiscussionsByRange(0, this.itemsPerPage);
-        this.discussionsService.getTotalDiscussions();
+        this.initDiscussionsData();
+        this.initDiscussionsTotal();
 
 
-        // get sctream of discussions data
+        // get stream of discussions data
         this.discussionsService.discussions$.subscribe(res => {
             this.filteredDiscussions = res;
         });
