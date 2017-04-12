@@ -7,10 +7,13 @@ var jwt = require('jsonwebtoken');
 
 
 
-router.get('/', function (req, res, next) {
+router.get('/range', function (req, res, next) {
+    var skip = Number(req.query.skip);
+    var limit = Number(req.query.limit);
     Discussion.find()
         .sort('-dates.created')
-        .limit(5)
+        .skip(skip)
+        .limit(limit)
         .populate('user', 'username')
         .exec(function (err, docs) {
             if (err) {
@@ -28,7 +31,22 @@ router.get('/', function (req, res, next) {
 });
 
 
-
+router.get('/totalDocs', function (req, res, next) {
+    Discussion.find()
+        .count(function (err, total) {
+            if (err) {
+                return res.status(500).json({
+                    error: err,
+                    message: 'internal server error, could not fullfil request'
+                });
+            }
+            res.status(201).json({
+                type: 'success',
+                total: total,
+                message: 'retrieved total documents'
+            });
+    });
+});
 
 
 // verify if the request has a valid webtoken

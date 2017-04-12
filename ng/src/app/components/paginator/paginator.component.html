@@ -1,3 +1,1 @@
-<p>
-  paginator works!
-</p>
+<button *ngFor="let i of pages;" (click)="requestPage(i)" class="paginator-button">{{i}}</button>

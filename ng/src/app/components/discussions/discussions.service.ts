@@ -2,53 +2,63 @@ import { Injectable } from '@angular/core';
 import { HttpService } from "../services/http.service";
 import { Discussion } from "./models/discussion.model";
 import { NotificationService } from "../notifications/notification.service";
-import { AuthenticationService } from "../authentication/authentication.service";
 import { FlashMessage } from "../notifications/models/flashmessage.model";
 import { Router } from "@angular/router";
+import { BehaviorSubject, Subject } from "rxjs";
 
 @Injectable()
 export class DiscussionsService {
 
-    // private discussionsSource: BehaviorSubject<any> = new BehaviorSubject(null);
-    // discussions$ = this.discussionsSource.asObservable();
+
+    private discussionsSource: BehaviorSubject<any> = new BehaviorSubject(null);
+    private discussionsTotalSource: Subject<any> = new Subject();
+
+    discussions$ = this.discussionsSource.asObservable();
+    discussionsTotal$ = this.discussionsTotalSource.asObservable();
     discussions: Discussion[] = [];
+    totalDiscussions: number;
 
 
     constructor(
         private httpService: HttpService,
-        private authenticationService: AuthenticationService,
         private notificationService: NotificationService,
         private router: Router
     ) { }
 
 
+    // gets discussions chronologically within provided range
+    getDiscussionsByRange(skip: number, limit: number) {
+        const query = '?skip=' + skip + '&limit=' + limit;
+        const url = 'http://localhost:3000/discussions/range' + query;
+        this.getDiscussions(url);
+    }
+
+
     // retrieves discussion data from db
-    getDiscussions() {
-        this.httpService.get(['http://localhost:3000/discussions'])
+    getDiscussions(discussionUrl: string) {
+        this.httpService.get([discussionUrl])
             .subscribe(res => {
-                res.discussions.forEach(discussion => {
-                    this.discussions.push(
-                        new Discussion(
-                            discussion.title,
-                            discussion.body,
-                            discussion.comments,
-                            discussion.user.username,
-                            discussion.user._id,
-                            discussion._id
-                        )
-                    );
-                });
+                this.discussions = this.transformDiscussions(res.discussions, []);
+                this.discussionsSource.next(this.discussions);
             });
     }
 
 
-    // getAmountOfDiscussions(): Discussion[] {
-    //     return
-    // }
-
-    // be able to retrieve a number of discussions
-    // be able to
-
+    transformDiscussions(data: any, discussionArr: any) {
+        for (var i = 0; i < data.length; i++) {
+            discussionArr.push(
+                new Discussion(
+                    data[i].title,
+                    data[i].body,
+                    data[i].comments,
+                    data[i].user.username,
+                    data[i].user._id,
+                    data[i]._id
+                )
+            );
+        }
+        return discussionArr;
+    }
 
 
     addNewDiscussion(discussion: Discussion) {
@@ -76,6 +86,14 @@ export class DiscussionsService {
                     ));
                 }
             )
+    }
+
+
+    getTotalDiscussions() {
+        this.httpService.get(['http://localhost:3000/discussions/totalDocs/'])
+            .subscribe(res => {
+                this.discussionsTotalSource.next(res.total);
+            })
     }
 
 

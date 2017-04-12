@@ -7,7 +7,9 @@ export class Discussion {
         public comments: number,
         public username?: string,
         public userId?: string,
-        public discussionId?: string
+        public discussionId?: string,
+        public timeStamp?: string,
+        public isoTime?: string,
     ) {}
 
 }

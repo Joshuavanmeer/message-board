@@ -1,5 +1,5 @@
 <section id="paginator">
-    <app-paginator></app-paginator>
+    <app-paginator [pages]="pagesConfig" (pageNumberRequestEv)="getPageNumber($event)"></app-paginator>
 </section>
 <app-discussion-list [discussions]="filteredDiscussions"></app-discussion-list>
 
