@@ -1,12 +1,10 @@
-<section id="discussions">
-    <ul>
-        <li *ngFor="let discussion of discussions">
-            <div class="discussion-container">
-                <h3>{{discussion.title}}</h3>
-                <p>{{discussion.body}}</p>
-                <p>{{discussion.username}}</p>
-            </div>
-        </li>
-    </ul>
+<section id="discussion-list">
+    <app-discussion
+        *ngFor="let discussion of discussions"
+        [title]="discussion.title"
+        [body]="discussion.body"
+        [username]="discussion.username"
+    >
+    </app-discussion>
 </section>
 

@@ -27,14 +27,16 @@ export class DiscussionsComponent implements OnInit {
 
 
     getPageNumber(pageNumber: number) {
+        console.log('i want page:', pageNumber);
         if (this.activePage === pageNumber) { return false; }
         this.activePage = pageNumber;
-        this.router.navigate(['/'], { queryParams: {page:pageNumber}});
+        this.router.navigate(['/'], { queryParams: { page: pageNumber }});
     }
 
 
     initDiscussionsData() {
-        const skip = this.activePage > 0 ? this.activePage * this.itemsPerPage : 0;
+        //const skip = this.activePage > 1 ? this.activePage * this.itemsPerPage : 0;
+        const skip = (this.activePage * this.itemsPerPage) - this.itemsPerPage;
         this.discussionsService.getDiscussionsByRange(skip, this.itemsPerPage);
     }
 
@@ -67,8 +69,8 @@ export class DiscussionsComponent implements OnInit {
         // set up paginator config
         this.discussionsService.discussionsTotal$.subscribe(total => {
             const totalPages = Math.ceil(total / this.itemsPerPage);
-            for (var i = 0; i < totalPages; i++) {
-                this.pagesConfig.push(i + 1);
+            for (var i = 1; i < totalPages + 1; i++) {
+                this.pagesConfig.push(i);
             }
         });
 

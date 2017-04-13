@@ -23,6 +23,7 @@ import { DiscussionsService } from "./components/discussions/discussions.service
 import { NotificationService } from "./components/notifications/notification.service";
 import { AuthenticationGuardService } from "./components/authentication/authentication.guard.service";
 import { DiscussionCreatorGuardService } from "./components/discussions/discussion-creator/discussion-creator-guard.service";
+import { DiscussionPageModule } from "./components/discussions/discussion-page/discussion-page.module";
 
 @NgModule({
     declarations: [
@@ -41,6 +42,7 @@ import { DiscussionCreatorGuardService } from "./components/discussions/discussi
         DashboardModule,
         DiscussionsModule,
         DiscussionCreatorModule,
+        DiscussionPageModule,
         AppRoutingModule,
         SharedModule
     ],

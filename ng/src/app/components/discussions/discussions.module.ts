@@ -4,11 +4,13 @@ import { RouterModule } from "@angular/router";
 import { DiscussionListComponent } from "./discussion-list/discussion-list.component";
 import { SharedModule } from "../shared/shared.module";
 import { DiscussionsComponent } from "./discussions.component";
+import {DiscussionComponent} from "./discussion/discussion.component";
 
 
 @NgModule({
     declarations: [
         DiscussionsComponent,
+        DiscussionComponent,
         DiscussionListComponent
     ],
     imports: [
