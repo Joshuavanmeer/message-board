@@ -12,9 +12,13 @@ export class DiscussionsService {
 
     private discussionsSource: BehaviorSubject<any> = new BehaviorSubject(null);
     private discussionsTotalSource: Subject<any> = new Subject();
+    private discussionByIdSource: Subject<any> = new Subject();
+
 
     discussions$ = this.discussionsSource.asObservable();
     discussionsTotal$ = this.discussionsTotalSource.asObservable();
+    discussionById$ = this.discussionByIdSource.asObservable();
+
     discussions: Discussion[] = [];
     totalDiscussions: number;
 
@@ -31,6 +35,15 @@ export class DiscussionsService {
         const query = '?skip=' + skip + '&limit=' + limit;
         const url = 'http://localhost:3000/discussions/range' + query;
         this.getDiscussions(url);
+    }
+
+
+    getDiscussionById(id: string) {
+        this.httpService.get(['http://localhost:3000/discussions/byid?id=' + id])
+            .subscribe(res => {
+                const transformedDiscussion = this.transformDiscussions([res.discussion], []);
+                this.discussionByIdSource.next(transformedDiscussion);
+            });
     }
 
 

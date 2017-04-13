@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DiscussionsService } from "./discussions.service";
 import { Discussion } from "./models/discussion.model";
-import {ActivatedRoute, Router} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-discussions',
@@ -35,7 +35,6 @@ export class DiscussionsComponent implements OnInit {
 
 
     initDiscussionsData() {
-        //const skip = this.activePage > 1 ? this.activePage * this.itemsPerPage : 0;
         const skip = (this.activePage * this.itemsPerPage) - this.itemsPerPage;
         this.discussionsService.getDiscussionsByRange(skip, this.itemsPerPage);
     }

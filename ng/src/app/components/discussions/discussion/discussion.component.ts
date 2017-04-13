@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Discussion } from "../models/discussion.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-discussion',
@@ -7,13 +9,18 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class DiscussionComponent implements OnInit {
 
-    @Input() title: string;
-    @Input() body: string;
-    @Input() username: string;
+    @Input() discussion: Discussion;
 
-    @Output() navigateToDiscussionEv: EventEmitter<any> = new EventEmitter();
 
-    constructor() { }
+    constructor(
+        private router: Router
+    ) { }
+
+
+    navigateToDiscussion() {
+        this.router.navigate(['/discussion', this.discussion.title], { queryParams: { id: this.discussion.discussionId }});
+    }
+
 
     ngOnInit() {
     }

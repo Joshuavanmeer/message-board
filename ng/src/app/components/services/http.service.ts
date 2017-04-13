@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from "@angular/http";
-import 'rxjs/Rx';
 import { Observable } from "rxjs";
+import 'rxjs/Rx';
 
 @Injectable()
 export class HttpService {
 
-    private headers: Headers = new Headers({'Content-Type': 'application/json'});
 
+    private headers: Headers = new Headers({'Content-Type': 'application/json'});
 
 
     get(urlPieces: string[], headers?): Observable<any> {
@@ -26,8 +26,6 @@ export class HttpService {
     }
 
 
-
-    // takes a
     private parseUrl(urlPieces: any): string {
         let url = '';
         urlPieces.forEach(piece => {

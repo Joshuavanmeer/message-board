@@ -15,7 +15,7 @@ router.get('/range', function (req, res, next) {
         .skip(skip)
         .limit(limit)
         .populate('user', 'username')
-        .exec(function (err, docs) {
+        .exec(function (err, discussionsDocs) {
             if (err) {
                 return res.status(401).json({
                     message: 'not authorized to proceed on route',
@@ -24,10 +24,28 @@ router.get('/range', function (req, res, next) {
             }
             res.status(201).json({
                 type: 'success',
-                discussions: docs,
+                discussions: discussionsDocs,
                 message: 'succesfully created a new discussion'
             });
         });
+});
+
+
+router.get('/byid', function (req, res, next) {
+    Discussion.findById(req.query.id)
+        .populate('user', 'username')
+        .exec(function(err, discussionDoc) {
+        if (err) {
+            return res.status(500).json({
+                error: err,
+                message: 'no document found with that id'
+            });
+        }
+        res.status(201).json({
+            discussion: discussionDoc,
+            message: 'retrieved total documents'
+        });
+    });
 });
 
 
