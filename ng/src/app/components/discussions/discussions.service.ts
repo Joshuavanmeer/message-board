@@ -41,7 +41,7 @@ export class DiscussionsService {
     getDiscussionById(id: string) {
         this.httpService.get(['http://localhost:3000/discussions/byid?id=' + id])
             .subscribe(res => {
-                const transformedDiscussion = this.transformDiscussions([res.discussion], []);
+                const transformedDiscussion = this.transformDiscussions([res.discussion], [])[0];
                 this.discussionByIdSource.next(transformedDiscussion);
             });
     }

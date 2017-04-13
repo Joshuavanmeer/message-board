@@ -23,6 +23,7 @@ export class DiscussionComponent implements OnInit {
 
 
     ngOnInit() {
+
     }
 
 }
