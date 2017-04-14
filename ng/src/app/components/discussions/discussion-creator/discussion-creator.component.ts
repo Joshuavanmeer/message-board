@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Discussion } from "../models/discussion.model";
-import { AuthenticationService } from "../../authentication/authentication.service";
 import { DiscussionsService } from "../discussions.service";
 
 @Component({
@@ -17,8 +16,7 @@ export class DiscussionCreatorComponent implements OnInit {
 
     constructor (
         private formBuilder: FormBuilder,
-        private discussionsService: DiscussionsService,
-        private authenticationService: AuthenticationService
+        private discussionsService: DiscussionsService
     ) {}
 
 
@@ -26,9 +24,7 @@ export class DiscussionCreatorComponent implements OnInit {
         if (this.discussionForm.valid) {
             const discussion = new Discussion(
                 this.discussionForm.value.messageTitle,
-                this.discussionForm.value.messageBody,
-                0,
-                this.authenticationService.user.username
+                this.discussionForm.value.messageBody
             );
             this.discussionsService.addNewDiscussion(discussion);
         }

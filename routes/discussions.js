@@ -97,7 +97,6 @@ router.post('/new-discussion', function (req, res, next) {
         var discussion = new Discussion({
             title: req.body.title,
             body: req.body.body,
-            comments: req.body.comments,
             user: userDoc
         });
         discussion.save(function (err, discussionResult) {
@@ -118,6 +117,17 @@ router.post('/new-discussion', function (req, res, next) {
             });
         });
     });
+});
+
+
+router.post('/newcomment', function (req, res, next) {
+    // need to extract userId from jsw token query for user data
+    // make a new comment model and save it
+    // store the new comment model to userDocument
+    // store the new comment to Discussion document
+    // return res.comment so we can apply new id on the front end
+    var decodedToken = jwt.decode(req.query.token);
+    console.log(decodedToken);
 });
 
 

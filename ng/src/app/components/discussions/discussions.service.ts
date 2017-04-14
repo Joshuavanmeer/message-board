@@ -63,7 +63,6 @@ export class DiscussionsService {
                 new Discussion(
                     data[i].title,
                     data[i].body,
-                    data[i].comments,
                     data[i].user.username,
                     data[i].user._id,
                     data[i]._id

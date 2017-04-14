@@ -31,7 +31,7 @@ import { DiscussionPageModule } from "./components/discussions/discussion-page/d
         MainHeaderComponent,
         NotificationComponent,
         FlashMessageComponent,
-        LogoutComponent
+        LogoutComponent,
     ],
     imports: [
         BrowserModule,

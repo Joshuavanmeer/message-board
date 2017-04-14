@@ -3,15 +3,21 @@ import { CommonModule } from "@angular/common";
 import { DiscussionPageComponent } from "./discussion-page.component";
 import { SharedModule } from "../../shared/shared.module";
 import { DiscussionHeroComponent } from "../discussion-hero/discussion-hero.component";
+import { CommentCreatorComponent } from "../../comments/comment-creator/comment-creator.component";
+import { CommentListComponent } from "../../comments/comment-list/comment-list.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     imports: [
         CommonModule,
-        SharedModule
+        ReactiveFormsModule,
+        SharedModule,
     ],
     declarations: [
         DiscussionPageComponent,
-        DiscussionHeroComponent
+        DiscussionHeroComponent,
+        CommentCreatorComponent,
+        CommentListComponent
     ],
     providers: []
 })

@@ -1,0 +1,7 @@
+<h3>Post a new comment</h3>
+
+<form novalidate autocomplete="off" [formGroup]="commentForm" (ngSubmit)="addNewComment()">
+    <label for="comment">Your comment</label>
+    <textarea id="comment" formControlName="comment"></textarea>
+    <button type="submit">Post new comment</button>
+</form>
