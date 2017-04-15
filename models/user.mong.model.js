@@ -7,8 +7,11 @@ var schema = new Schema({
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    dates: {
+        created:  { type: Date, default: Date.now }
+    },
     discussions: [{ type: Schema.Types.ObjectId, ref: 'Discussion' }],
-    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment'}]
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment'}],
 });
 
 // prevents duplicate email addresses

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user.mong.model');
 var Discussion = require('../models/discussion.mong.model');
+var Comment = require('../models/comment.mong');
 var config = require('../config/database');
 var jwt = require('jsonwebtoken');
 
@@ -121,15 +122,36 @@ router.post('/new-discussion', function (req, res, next) {
 
 
 router.post('/newcomment', function (req, res, next) {
-    // need to extract userId from jsw token query for user data
-    // make a new comment model and save it
-    // store the new comment model to userDocument
-    // store the new comment to Discussion document
-    // return res.comment so we can apply new id on the front end
     var decodedToken = jwt.decode(req.query.token);
-    console.log(decodedToken);
+    // store reference to user document
+    User.findById(decodedToken.user._id, function (err, userDoc) {
+        if (err || !userDoc) {
+            return res.status(500).json({
+                error: err,
+                message: 'internal server error, could not fullfil request'
+            });
+        }
+        Discussion.findById(req.query.discussionId, function(err, discussionDoc) {
+            var newComment = new Comment({
+                body: req.body.body,
+                user: userDoc,
+                discussion: discussionDoc
+            });
+            // set up db refs and save the new comment
+            newComment.save(function (err, commentResult) {
+                userDoc.comments.push(newComment);
+                userDoc.save();
+                discussionDoc.comments.push(newComment);
+                discussionDoc.save();
+                res.status(201).json({
+                    type: 'succes',
+                    message: 'successfully posted new comment',
+                    comment: commentResult
+                });
+            });
+        });
+    });
 });
-
 
 
 module.exports = router;

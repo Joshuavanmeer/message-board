@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Validators, FormBuilder, Form, FormGroup} from "@angular/forms";
-import {Comment} from "../models/comment.model";
+import { Comment } from "../models/comment.model";
+import {CommentsService} from "../comments.service";
+import {Discussion} from "../../discussions/models/discussion.model";
 
 @Component({
   selector: 'app-comment-creator',
@@ -11,20 +13,21 @@ export class CommentCreatorComponent implements OnInit {
 
 
     private commentForm: FormGroup;
+    @Input() private discussion: Discussion;
 
 
     constructor(
         private formBuilder: FormBuilder,
-
+        private commentsService: CommentsService
     ) { }
 
-    addNewComment (): void {
+
+    addNewComment(): void {
         if (this.commentForm.valid) {
             const newComment = new Comment(
-                this.commentForm.value.messageTitle,
-                this.commentForm.value.messageBody,
+                this.commentForm.value.comment
             );
-            //this.discussionsService.addNewDiscussion(discussion);
+            this.commentsService.addNewComment(newComment, this.discussion.discussionId);
         }
     }
 

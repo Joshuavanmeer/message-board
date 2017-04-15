@@ -9,6 +9,7 @@ import { AuthenticationModule } from "./components/authentication/authentication
 import { DashboardModule } from "./components/dashboard/dashboard.module";
 import { DiscussionsModule } from "./components/discussions/discussions.module";
 import { DiscussionCreatorModule } from "./components/discussions/discussion-creator/discussion-creator.module";
+import { DiscussionPageModule } from "./components/discussions/discussion-page/discussion-page.module";
 import { AppRoutingModule } from "./app.routing.module";
 // components
 import { AppComponent } from './app.component';
@@ -23,7 +24,7 @@ import { DiscussionsService } from "./components/discussions/discussions.service
 import { NotificationService } from "./components/notifications/notification.service";
 import { AuthenticationGuardService } from "./components/authentication/authentication.guard.service";
 import { DiscussionCreatorGuardService } from "./components/discussions/discussion-creator/discussion-creator-guard.service";
-import { DiscussionPageModule } from "./components/discussions/discussion-page/discussion-page.module";
+import { CommentsService } from "./components/comments/comments.service";
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import { DiscussionPageModule } from "./components/discussions/discussion-page/d
         AuthenticationGuardService,
         NotificationService,
         DiscussionsService,
+        CommentsService,
         DiscussionCreatorGuardService,
         HttpService
     ],
