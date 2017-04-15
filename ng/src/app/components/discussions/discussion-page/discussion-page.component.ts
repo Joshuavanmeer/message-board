@@ -26,7 +26,6 @@ export class DiscussionPageComponent implements OnInit, OnDestroy {
 
         this.sub = this.discussionsService.discussionById$.subscribe(retrievedDiscussion => {
             this.discussion = retrievedDiscussion;
-            console.log(this.discussion);
         });
 
         // retrieve discussion data based on id

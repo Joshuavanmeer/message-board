@@ -32,7 +32,7 @@ import { CommentsService } from "./components/comments/comments.service";
         MainHeaderComponent,
         NotificationComponent,
         FlashMessageComponent,
-        LogoutComponent,
+        LogoutComponent
     ],
     imports: [
         BrowserModule,

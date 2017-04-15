@@ -6,6 +6,7 @@ import { DiscussionHeroComponent } from "../discussion-hero/discussion-hero.comp
 import { CommentCreatorComponent } from "../../comments/comment-creator/comment-creator.component";
 import { CommentListComponent } from "../../comments/comment-list/comment-list.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { CommentComponent } from "../../comments/comment/comment.component";
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from "@angular/forms";
         DiscussionPageComponent,
         DiscussionHeroComponent,
         CommentCreatorComponent,
-        CommentListComponent
+        CommentListComponent,
+        CommentComponent
     ],
     providers: []
 })

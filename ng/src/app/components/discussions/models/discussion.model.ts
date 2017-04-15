@@ -9,7 +9,8 @@ export class Discussion {
         public userId?: string,
         public discussionId?: string,
         public timeStamp?: string,
-        public isoTime?: string
+        public isoTime?: string,
+        public comments?: Comment[]
     ) {}
 
     addComment(newComment: Comment) {

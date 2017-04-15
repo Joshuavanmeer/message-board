@@ -32,9 +32,28 @@ router.get('/range', function (req, res, next) {
 });
 
 
+router.get('/comments', function(req, res, next) {
+    Comment.find({discussion: req.query.discussionId})
+        .populate('user', 'username')
+        .exec(function (err, commentsDoc) {
+        if (err) {
+            return res.status(500).json({
+                error: err,
+                message: 'no document found with that id'
+            });
+        }
+        res.status(201).json({
+            comments: commentsDoc,
+            message: 'retrieved comments'
+        });
+    });
+});
+
+
 router.get('/byid', function (req, res, next) {
     Discussion.findById(req.query.id)
         .populate('user', 'username')
+        .populate('comments')
         .exec(function(err, discussionDoc) {
         if (err) {
             return res.status(500).json({
