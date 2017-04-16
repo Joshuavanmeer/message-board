@@ -5,6 +5,7 @@ import { NotificationService } from "../notifications/notification.service";
 import { FlashMessage } from "../notifications/models/flashmessage.model";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Subject } from "rxjs";
+import { TimeStamp } from "../../models/timestamp.model";
 
 @Injectable()
 export class DiscussionsService {
@@ -65,7 +66,8 @@ export class DiscussionsService {
                     data[i].body,
                     data[i].user.username,
                     data[i].user._id,
-                    data[i]._id
+                    data[i]._id,
+                    TimeStamp.convertTime(data[i].dates.created)
                 )
             );
         }

@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Comment } from "./models/comment.model";
+import { TimeStamp } from "../../models/timestamp.model";
 import { HttpService } from "../services/http.service";
-import {Subject} from "rxjs";
+import { Subject } from "rxjs";
 
 @Injectable()
 
@@ -47,7 +48,7 @@ export class CommentsService {
                 comment.user.username,
                 comment._id,
                 null,
-                comment.dates.created
+                TimeStamp.convertTime(comment.dates.created)
             ));
         });
         return transformedComments;

@@ -2,6 +2,7 @@ import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import { CommentsService } from "../comments.service";
 import { Subscription } from "rxjs";
 import { DiscussionsService } from "../../discussions/discussions.service";
+import { TimeStamp } from "../../../models/timestamp.model";
 
 @Component({
     selector: 'app-comment-list',
@@ -10,10 +11,12 @@ import { DiscussionsService } from "../../discussions/discussions.service";
 })
 export class CommentListComponent implements OnInit, OnDestroy {
 
+
     private comments: any;
     private discussionId: string;
     private discussionIdSub: Subscription
     private commentListSub: Subscription
+
 
     constructor(
         private commentsService: CommentsService,
@@ -29,10 +32,8 @@ export class CommentListComponent implements OnInit, OnDestroy {
         });
 
         this.commentListSub = this.commentsService.commentList$.subscribe(retrievedComments => {
-            console.log(retrievedComments);
             this.comments = retrievedComments;
         });
-
 
 
     }
