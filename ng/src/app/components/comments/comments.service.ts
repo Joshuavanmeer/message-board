@@ -47,8 +47,8 @@ export class CommentsService {
                 comment.body,
                 comment.user.username,
                 comment._id,
-                null,
-                TimeStamp.convertTime(comment.dates.created)
+                TimeStamp.convertTime(comment.dates.created),
+                comment.user.imgSrc
             ));
         });
         return transformedComments;

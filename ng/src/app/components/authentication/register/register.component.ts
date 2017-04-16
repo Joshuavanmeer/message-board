@@ -10,6 +10,7 @@ import { AuthenticationService } from "../authentication.service";
 export class RegisterComponent implements OnInit {
 
     private registerForm: FormGroup;
+    private avatarSrc: string = 'http://www.joshuavanmeer.nl/messageboard/img/avatar1.svg';
 
 
     registerNewUser (): void {
@@ -18,10 +19,17 @@ export class RegisterComponent implements OnInit {
                 name: this.registerForm.value.name,
                 username: this.registerForm.value.username,
                 email: this.registerForm.value.email,
-                password: this.registerForm.value.password
+                password: this.registerForm.value.password,
+                imgSrc: this.avatarSrc
             };
-            this.authenticationService.register(newUser)
+            this.authenticationService.register(newUser);
         }
+    }
+
+
+    updateAvatarSrc(avatarSrc: string) {
+        this.avatarSrc = avatarSrc;
+        console.log(this.avatarSrc);
     }
 
 

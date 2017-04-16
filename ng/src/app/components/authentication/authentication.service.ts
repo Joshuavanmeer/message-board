@@ -36,8 +36,9 @@ export class AuthenticationService {
                 null,
                 storedUserData.userId,
                 storedUserData.name,
-                storedUserData.username
+                storedUserData.username,
             );
+            console.log(storedUserData);
             // informs subscribed authguards and
             // services that the user is logged in
             this.isLoggedInSource.next(true);
@@ -52,13 +53,7 @@ export class AuthenticationService {
 
 
     register(userDetails: any) {
-        const newUser = {
-            name: userDetails.name,
-            username: userDetails.username,
-            email: userDetails.email,
-            password: userDetails.password
-        };
-        this.httpService.post(['http://localhost:3000/auth/register'], newUser)
+        this.httpService.post(['http://localhost:3000/auth/register'], userDetails)
             .subscribe(
                 res => {
                     this.notificationService.showFlashMessage(
@@ -89,15 +84,14 @@ export class AuthenticationService {
                 res => {
                     localStorage.setItem('jwt', res.token);
                     localStorage.setItem('user', JSON.stringify(res.user));
-                    // localStorage.setItem('userId', res.user.userId);
                     this.user = new User(
                         userCredentials.email,
                         null,
                         res.user.userId,
                         res.user.name,
-                        res.user.username
+                        res.user.username,
+                        res.user.imgSrc
                     );
-                    console.log(res.user.userId);
                     this.authToken = res.token;
                     this.notificationService.showFlashMessage(
                         new FlashMessage(

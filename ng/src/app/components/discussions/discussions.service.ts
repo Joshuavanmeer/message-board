@@ -42,6 +42,7 @@ export class DiscussionsService {
     getDiscussionById(id: string) {
         this.httpService.get(['http://localhost:3000/discussions/byid?id=' + id])
             .subscribe(res => {
+                console.log(']]]]', res);
                 const transformedDiscussion = this.transformDiscussions([res.discussion], [])[0];
                 this.discussionByIdSource.next(transformedDiscussion);
             });
@@ -52,8 +53,10 @@ export class DiscussionsService {
     getDiscussions(discussionUrl: string) {
         this.httpService.get([discussionUrl])
             .subscribe(res => {
-                this.discussions = this.transformDiscussions(res.discussions, []);
-                this.discussionsSource.next(this.discussions);
+                if (res.discussions.length) {
+                    this.discussions = this.transformDiscussions(res.discussions, []);
+                    this.discussionsSource.next(this.discussions);
+                }
             });
     }
 
@@ -66,6 +69,7 @@ export class DiscussionsService {
                     data[i].body,
                     data[i].user.username,
                     data[i].user._id,
+                    data[i].user.imgSrc,
                     data[i]._id,
                     TimeStamp.convertTime(data[i].dates.created)
                 )

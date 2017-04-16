@@ -1,5 +1,5 @@
 <h1>Register yourself as a new user</h1>
-
+<app-avatar-picker (newAvatarSelectedEv)="updateAvatarSrc($event)"></app-avatar-picker>
 <form novalidate autocomplete="off" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
     <label for="name">Name</label>
     <input type="text" id="name" formControlName="name">

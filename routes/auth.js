@@ -12,7 +12,8 @@ router.post('/register', function (req, res, next) {
         name: req.body.name,
         username: req.body.username,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10)
+        password: bcrypt.hashSync(req.body.password, 10),
+        imgSrc: req.body.imgSrc
     });
     newUser.save(newUser, function (err, result) {
         if (err) {
@@ -62,7 +63,8 @@ router.post('/login', function (req, res, next) {
                 name: userDoc.name,
                 username: userDoc.username,
                 email: userDoc.email,
-                userId: userDoc._id
+                userId: userDoc._id,
+                imgSrc: userDoc.imgSrc
             }
         });
     });

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Discussion } from "../models/discussion.model";
 import { DiscussionsService } from "../discussions.service";
 import { Subscription } from "rxjs";
@@ -8,14 +8,17 @@ import { Subscription } from "rxjs";
   templateUrl: './discussion-hero.component.html',
   styleUrls: ['./discussion-hero.component.css']
 })
-export class DiscussionHeroComponent implements OnInit {
+export class DiscussionHeroComponent implements OnInit, OnDestroy {
+
 
     private discussion: Discussion;
     private sub: Subscription
 
+
     constructor(
         private discussionsService: DiscussionsService
     ) { }
+
 
     ngOnInit() {
 
@@ -23,7 +26,11 @@ export class DiscussionHeroComponent implements OnInit {
             this.discussion = res;
         });
 
+    }
 
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
     }
 
 }

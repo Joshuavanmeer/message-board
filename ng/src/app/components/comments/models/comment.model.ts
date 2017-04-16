@@ -5,7 +5,7 @@ export class Comment {
         public username?: string,
         public commentId?: string,
         public timeStamp?: string,
-        public isoTime?: string
+        public userImgSrc?: string
     ) {}
 
 }

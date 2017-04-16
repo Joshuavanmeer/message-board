@@ -15,7 +15,7 @@ router.get('/range', function (req, res, next) {
         .sort('-dates.created')
         .skip(skip)
         .limit(limit)
-        .populate('user', 'username')
+        .populate('user', 'username imgSrc')
         .exec(function (err, discussionsDocs) {
             if (err) {
                 return res.status(401).json({
@@ -34,7 +34,7 @@ router.get('/range', function (req, res, next) {
 
 router.get('/comments', function(req, res, next) {
     Comment.find({discussion: req.query.discussionId})
-        .populate('user', 'username')
+        .populate('user', 'username imgSrc')
         .exec(function (err, commentsDoc) {
         if (err) {
             return res.status(500).json({
@@ -52,7 +52,7 @@ router.get('/comments', function(req, res, next) {
 
 router.get('/byid', function (req, res, next) {
     Discussion.findById(req.query.id)
-        .populate('user', 'username')
+        .populate('user', 'username imgSrc')
         .populate('comments')
         .exec(function(err, discussionDoc) {
         if (err) {

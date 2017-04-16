@@ -5,12 +5,16 @@ import { AuthenticationComponent } from "./authentication.component";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthenticationRoutingModule } from "./authentication.routing.module";
+import { AvatarPickerComponent } from "./avatar-picker/avatar-picker.component";
+import { AvatarComponent } from "./avatar/avatar.component";
 
 @NgModule({
     declarations: [
         AuthenticationComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        AvatarPickerComponent,
+        AvatarComponent
     ],
     imports: [
         CommonModule,

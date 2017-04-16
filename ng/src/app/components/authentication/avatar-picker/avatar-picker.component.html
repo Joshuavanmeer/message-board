@@ -1,0 +1,3 @@
+<div class="avatar-picker-container">
+    <app-avatar *ngFor="let avatar of avatars;" [avatar]="avatar" (selectAvatarEv)="newAvatarSelected($event)"></app-avatar>
+</div>

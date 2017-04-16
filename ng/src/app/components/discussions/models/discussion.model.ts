@@ -7,6 +7,7 @@ export class Discussion {
         public body: string,
         public username?: string,
         public userId?: string,
+        public userImgSrc?: string,
         public discussionId?: string,
         public timeStamp?: string,
         public isoTime?: string,
