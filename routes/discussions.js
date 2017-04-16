@@ -16,6 +16,7 @@ router.get('/range', function (req, res, next) {
         .skip(skip)
         .limit(limit)
         .populate('user', 'username imgSrc')
+        .populate('comments', 'comments')
         .exec(function (err, discussionsDocs) {
             if (err) {
                 return res.status(401).json({

@@ -11,7 +11,7 @@ import { Subscription } from "rxjs";
 })
 export class DiscussionPageComponent implements OnInit, OnDestroy {
 
-
+    private showCommentCreator: boolean = localStorage.getItem('jwt') !== null ? true : false;
     private discussion: Discussion;
     private sub: Subscription;
 

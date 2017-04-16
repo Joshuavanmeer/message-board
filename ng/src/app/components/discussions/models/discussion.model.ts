@@ -10,8 +10,7 @@ export class Discussion {
         public userImgSrc?: string,
         public discussionId?: string,
         public timeStamp?: string,
-        public isoTime?: string,
-        public comments?: Comment[]
+        public totalComments?: number
     ) {}
 
     addComment(newComment: Comment) {

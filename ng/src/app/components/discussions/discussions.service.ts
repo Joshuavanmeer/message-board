@@ -55,6 +55,7 @@ export class DiscussionsService {
             .subscribe(res => {
                 if (res.discussions.length) {
                     this.discussions = this.transformDiscussions(res.discussions, []);
+                    console.log(this.discussions);
                     this.discussionsSource.next(this.discussions);
                 }
             });
@@ -71,7 +72,8 @@ export class DiscussionsService {
                     data[i].user._id,
                     data[i].user.imgSrc,
                     data[i]._id,
-                    TimeStamp.convertTime(data[i].dates.created)
+                    TimeStamp.convertTime(data[i].dates.created),
+                    data[i].comments.length
                 )
             );
         }
