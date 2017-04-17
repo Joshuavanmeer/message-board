@@ -1,5 +1,5 @@
 #main-header {
-    background: lightsteelblue;
+    background: #34b5df;
     padding: 40px;
 }
 
@@ -12,9 +12,3 @@ ul {
     justify-content: flex-end;
 }
 
-a {
-    background: white;
-    border-radius: 5px;
-    padding: 5px 30px;
-    margin: 0 20px;
-}

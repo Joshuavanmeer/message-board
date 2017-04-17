@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis:300,400');
-@import url('https://fonts.googleapis.com/css?family=Hind:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700');
 
 /*-------------------------------------------
     reset
@@ -67,6 +67,7 @@ body {
 p, span {
     color: #71868b;
     font-size: 1.1rem;
+    line-height: 1.5rem;
 }
 
 h1, h2, h3, h4, h5 {
@@ -74,15 +75,35 @@ h1, h2, h3, h4, h5 {
 }
 
 h3 {
-    font-size: 34px;
+    font-size: 30px;
 }
 
 a {
     cursor: pointer;
 }
 
+.menu-item {
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin: 0 20px;
+    border: 2px solid white;
+    color: white;
+}
+
 .username-s,
 .annotation-s {
     font-size: .8rem;
     font-weight: 600;
+}
+
+
+/*-------------------------------------------
+    layout
+-------------------------------------------*/
+
+
+#main-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
 }

@@ -1,14 +1,19 @@
 <header id="main-header">
     <nav>
         <ul>
-            <li><a [routerLink]="['/']">Home</a></li>
-            <li><a *ngIf="!isLoggedIn"[routerLink]="['/auth/login']">Login</a></li>
-            <li><a *ngIf="!isLoggedIn" [routerLink]="['/auth/register']">Register</a></li>
-            <div *ngIf="isLoggedIn">
-                <app-logout></app-logout>
-                <a [routerLink]="['/dashboard']">my dashboard</a>
-                <a [routerLink]="['/start-new-discussion']">new discussion</a>
-            </div>
+            <li><a class="menu-item" *ngIf="!isLoggedIn"[routerLink]="['/auth/login']">Login</a></li>
+            <li><a class="menu-item" *ngIf="!isLoggedIn" [routerLink]="['/auth/register']">Register</a></li>
+            <li>
+                <ul>
+                    <li>
+                        <div *ngIf="isLoggedIn">
+                        <app-logout></app-logout>
+                        <a class="menu-item" [routerLink]="['/dashboard']">my dashboard</a>
+                        <a class="menu-item" [routerLink]="['/start-new-discussion']">new discussion</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </header>
