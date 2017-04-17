@@ -29,7 +29,7 @@ export class AuthenticationService {
     // check is user has a jsonwebtoken
     // stored in localstorage
     checkAuthenticationState() {
-        if (localStorage.getItem('jwt')) {
+        if (localStorage.getItem('jwt') !== null) {
             const storedUserData = JSON.parse(localStorage.getItem('user'));
             this.user = new User(
                 storedUserData.email,
@@ -37,8 +37,8 @@ export class AuthenticationService {
                 storedUserData.userId,
                 storedUserData.name,
                 storedUserData.username,
+                storedUserData.imgSrc
             );
-            console.log(storedUserData);
             // informs subscribed authguards and
             // services that the user is logged in
             this.isLoggedInSource.next(true);

@@ -23,7 +23,7 @@ export class TimeStamp {
         }
 
         else if (diff > 604800) {
-            convertedTimestamp = 'over a week ago';
+            convertedTimestamp = 'over a week';
         }
 
         return convertedTimestamp;
@@ -34,21 +34,21 @@ export class TimeStamp {
     static convertToMinuteNotation(seconds: number) {
         let min = Math.floor(seconds / 60);
         let multiple = min > 1 ? 's' : '';
-        return `${min} minute${multiple} ago`;
+        return `${min} minute${multiple}`;
     }
 
 
     static convertToHours(seconds: number) {
         let hours = Math.floor(seconds / 3600);
         let multiple = hours > 1 ? 's' : '';
-        return `${hours} hour${multiple} ago`
+        return `${hours} hour${multiple}`
     }
 
 
     static convertToDays(seconds: number) {
         let days = Math.floor(seconds / 86400);
         let multiple = days > 1 ? 's' : '';
-        return `${days} day${multiple} ago`
+        return `${days} day${multiple}`;
     }
 
 

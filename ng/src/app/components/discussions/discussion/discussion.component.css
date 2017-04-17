@@ -1,4 +1,51 @@
-.discussion-container {
-    border: 1px solid grey;
-    padding: 50px;
+.flex {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 }
+
+
+figure img {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+figure {
+    margin-right: 20px;
+}
+
+.discussion-container {
+    padding: 40px;
+    background: #f4f4f4;
+    margin: 40px;
+    border-radius: 10px;
+}
+
+.discussion-container h3 {
+    margin-bottom: 20px;
+}
+
+.discussion-body {
+    margin-bottom: 20px;
+}
+
+.timestamp {
+    margin-right: 20px;
+}
+
+.comment::before {
+    content: url('http://www.joshuavanmeer.nl/messageboard/img/icons/comment.svg');
+    position: relative;
+    top: 1px;
+    left: -5px;
+}
+
+.timestamp::before {
+    content: url('http://www.joshuavanmeer.nl/messageboard/img/icons/klok.svg');
+    position: relative;
+    top: 1px;
+    left: -5px;
+}
+
+

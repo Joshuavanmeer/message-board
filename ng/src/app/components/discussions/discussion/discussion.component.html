@@ -1,8 +1,20 @@
 <div class="discussion-container">
-    <h3 (click)="navigateToDiscussion()">{{discussion.title}}</h3>
-    <img src="{{discussion.userImgSrc}}">
-    <p>{{discussion.body}}</p>
-    <p>{{discussion.username}}</p>
-    <p>{{discussion.timeStamp}}</p>
-    <p>{{discussion.totalComments}} comments</p>
+    <a (click)="navigateToDiscussion()">
+        <header>
+            <h3>{{discussion.title}}</h3>
+        </header>
+        <p class="discussion-body">{{discussion.body}}</p>
+    </a>
+    <div class="flex">
+        <figure class="flex">
+            <img src="{{discussion.userImgSrc}}">
+            <div>
+                <figcaption>
+                    <span class="username-s">{{discussion.username}}</span>
+                </figcaption>
+            </div>
+        </figure>
+        <span class="timestamp annotation-s">{{discussion.timeStamp}}</span>
+        <span class="comment annotation-s">{{discussion.totalComments}} comments</span>
+    </div>
 </div>

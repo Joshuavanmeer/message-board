@@ -164,7 +164,7 @@ router.post('/newcomment', function (req, res, next) {
                 discussionDoc.comments.push(newComment);
                 discussionDoc.save();
                 res.status(201).json({
-                    type: 'succes',
+                    type: 'success',
                     message: 'successfully posted new comment',
                     comment: commentResult
                 });

@@ -3,6 +3,8 @@ import { Comment } from "./models/comment.model";
 import { TimeStamp } from "../../models/timestamp.model";
 import { HttpService } from "../services/http.service";
 import { Subject } from "rxjs";
+import { FlashMessage } from "../notifications/models/flashmessage.model";
+import { NotificationService } from "../notifications/notification.service";
 
 @Injectable()
 
@@ -15,7 +17,8 @@ export class CommentsService {
 
 
     constructor(
-        private httpService: HttpService
+        private httpService: HttpService,
+        private notificationService: NotificationService
     ) {}
 
 
@@ -26,6 +29,13 @@ export class CommentsService {
             .subscribe(res => {
                 const transformedComment = this.transformComments([res.comment]);
                 this.commentList.unshift(transformedComment[0]);
+                this.notificationService.showFlashMessage(
+                    new FlashMessage(
+                        res.type,
+                        res.message,
+                        5000
+                    )
+                );
             });
     }
 

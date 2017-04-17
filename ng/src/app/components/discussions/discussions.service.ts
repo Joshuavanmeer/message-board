@@ -55,7 +55,6 @@ export class DiscussionsService {
             .subscribe(res => {
                 if (res.discussions.length) {
                     this.discussions = this.transformDiscussions(res.discussions, []);
-                    console.log(this.discussions);
                     this.discussionsSource.next(this.discussions);
                 }
             });
