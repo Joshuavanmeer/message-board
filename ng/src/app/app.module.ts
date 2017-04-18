@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // modules
 import { HomeModule } from "./components/home/home.module";
 import { SharedModule } from "./components/shared/shared.module";
@@ -38,6 +39,7 @@ import { ProfileCardComponent } from './components/main-header/profile-card/prof
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         FormsModule,
         AuthenticationModule,
         HttpModule,

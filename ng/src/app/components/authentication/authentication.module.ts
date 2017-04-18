@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthenticationRoutingModule } from "./authentication.routing.module";
 import { AvatarPickerComponent } from "./avatar-picker/avatar-picker.component";
 import { AvatarComponent } from "./avatar/avatar.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { AvatarComponent } from "./avatar/avatar.component";
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        AuthenticationRoutingModule
+        AuthenticationRoutingModule,
+        BrowserAnimationsModule
     ],
     providers: [
     ]
