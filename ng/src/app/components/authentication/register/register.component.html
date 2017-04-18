@@ -1,14 +1,15 @@
-<h1>Register yourself as a new user</h1>
-<app-avatar-picker (newAvatarSelectedEv)="updateAvatarSrc($event)"></app-avatar-picker>
-<form novalidate autocomplete="off" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
-    <label for="name">Name</label>
-    <input type="text" id="name" formControlName="name">
-    <label for="username">Username</label>
-    <input type="text" id="username" formControlName="username">
-    <label for="email">Email</label>
-    <input type="email" id="email" formControlName="email">
-    <label for="password">Password</label>
-    <input type="password" id="password" formControlName="password">
-    <button type="submit">Submit man</button>
-</form>
+<div class="register-container">
+    <app-avatar-picker (newAvatarSelectedEv)="updateAvatarSrc($event)"></app-avatar-picker>
+    <form novalidate autocomplete="off" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
+        <input type="text" id="name" formControlName="name" placeholder="Name">
+        <span class="error-msg" *ngIf="registerForm.controls['name'].hasError('required') && registerForm.controls['name'].touched">This field may not be empty</span>
+        <input type="text" id="username" formControlName="username" placeholder="Username">
+        <span class="error-msg" *ngIf="registerForm.controls['username'].hasError('required') && registerForm.controls['username'].touched">This field may not be empty</span>
+        <input type="email" id="email" formControlName="email" placeholder="Email">
+        <span class="error-msg" *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched">This field may not be empty</span>
+        <input type="password" id="password" formControlName="password" placeholder="Password">
+        <span class="error-msg" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">This field may not be empty</span>
+        <button [disabled]="!registerForm.valid" class="button-l" type="submit">Make an account</button>
+    </form>
+</div>
 

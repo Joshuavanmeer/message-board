@@ -4,7 +4,7 @@ import { HttpService } from "../services/http.service";
 import { NotificationService } from "../notifications/notification.service";
 import { Router } from "@angular/router";
 import { FlashMessage } from "../notifications/models/flashmessage.model";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
 import 'rxjs/Rx';
 
 @Injectable()
@@ -15,8 +15,10 @@ export class AuthenticationService {
 
     // streams
     private isLoggedInSource: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    private userDetailsSource: BehaviorSubject<any> = new BehaviorSubject(null);
     // end points
     isLoggedIn$ = this.isLoggedInSource.asObservable();
+    userDetails$ = this.userDetailsSource.asObservable();
 
 
     constructor(
@@ -42,6 +44,7 @@ export class AuthenticationService {
             // informs subscribed authguards and
             // services that the user is logged in
             this.isLoggedInSource.next(true);
+            this.userDetailsSource.next(this.user);
         }
     }
 
@@ -101,6 +104,7 @@ export class AuthenticationService {
                         )
                     );
                     this.updateAuthenticationState(true);
+                    this.userDetailsSource.next(this.user);
                     this.router.navigate(['/dashboard']);
             },
                 err => {

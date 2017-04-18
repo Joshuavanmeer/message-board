@@ -18,6 +18,11 @@ export class AvatarPickerComponent implements OnInit {
         new Avatar( 2, this.storageUrl + 'avatar2.svg', false ),
         new Avatar( 3, this.storageUrl + 'avatar3.svg', false ),
         new Avatar( 4, this.storageUrl + 'avatar4.svg', false ),
+        new Avatar( 5, this.storageUrl + 'avatar5.svg', false ),
+        new Avatar( 6, this.storageUrl + 'avatar6.svg', false ),
+        new Avatar( 7, this.storageUrl + 'avatar7.svg', false ),
+        new Avatar( 8, this.storageUrl + 'avatar8.svg', false ),
+        new Avatar( 9, this.storageUrl + 'avatar9.svg', false )
     ];
 
 

@@ -1,4 +1,5 @@
-<p (click)="selectAvatar()" >
-  Avatar
-    <img [ngClass]="{ 'selected': avatar.selected }" src="{{avatar.src}}">
-</p>
+<a (click)="selectAvatar()">
+    <div [ngClass]="{ 'selected': avatar.selected }" class="avatar-container">
+        <img src="{{avatar.src}}">
+    </div>
+</a>

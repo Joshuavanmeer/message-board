@@ -1,4 +1,20 @@
 .avatar-picker-container {
-    padding: 50px;
-    border: 1px solid black;
+    background: #e7e7e7;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+ul, li {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+li {
+    width: 10%;
+}
+
+h1 {
+    text-align: center;
 }

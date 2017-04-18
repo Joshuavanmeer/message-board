@@ -1,0 +1,12 @@
+<div class="helper">
+    <a (click)="toggleDropdown()">
+        <div class="profile-card-container">
+            <img src="{{user.imgSrc}}">
+            <span class="username">{{user.username}}</span>
+        </div>
+    </a>
+    <ul *ngIf="dropdownIsOpen">
+        <li><a [routerLink]="['/dashboard']">my dashboard</a></li>
+        <li><a (click)="logout()">logout</a></li>
+    </ul>
+</div>

@@ -3,14 +3,15 @@
         <ul>
             <li><a class="menu-item" *ngIf="!isLoggedIn"[routerLink]="['/auth/login']">Login</a></li>
             <li><a class="menu-item" *ngIf="!isLoggedIn" [routerLink]="['/auth/register']">Register</a></li>
-            <li>
+            <li *ngIf="isLoggedIn">
                 <ul>
                     <li>
-                        <div *ngIf="isLoggedIn">
-                        <app-logout></app-logout>
-                        <a class="menu-item" [routerLink]="['/dashboard']">my dashboard</a>
-                        <a class="menu-item" [routerLink]="['/start-new-discussion']">new discussion</a>
+                        <div>
+                            <app-profile-card></app-profile-card>
                         </div>
+                    </li>
+                    <li>
+                        <a class="menu-item solid-btn" [routerLink]="['/start-new-discussion']">new discussion</a>
                     </li>
                 </ul>
             </li>

@@ -64,7 +64,9 @@ body {
     font-family: 'Hind', sans-serif;
 }
 
-p, span {
+p,
+span
+{
     color: #71868b;
     font-size: 1.1rem;
     line-height: 1.5rem;
@@ -74,21 +76,43 @@ h1, h2, h3, h4, h5 {
     font-family: 'Dosis', sans-serif;
 }
 
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+}
+
 h3 {
     font-size: 30px;
 }
 
 a {
+    text-decoration: none;
     cursor: pointer;
 }
 
 .menu-item {
-    text-decoration: none;
     border-radius: 20px;
-    padding: 5px 20px;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 36px;
     margin: 0 20px;
     border: 2px solid white;
     color: white;
+}
+
+.solid-btn {
+    background: white;
+    color: black;
+    box-shadow: 0 1px 1px rgba(0,0,0,.3);
+    border: 2px solid lightblue;
+    font-weight: 600;
+    transition: .2s all;
+}
+
+.solid-btn:hover,
+.button-l:hover
+{
+    box-shadow: 0 2px 2px rgba(0,0,0,.7);
 }
 
 .username-s,
@@ -96,6 +120,73 @@ a {
     font-size: .8rem;
     font-weight: 600;
 }
+
+
+.button-l {
+    font-family: 'Dosis', sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 42px;
+    border: none;
+    background: white;
+    color: #34b5df;
+    background: #34b5df;
+    border-radius: 21px;
+    color: white;
+    width: 50%;
+    margin: 20px auto 0;
+    transition: .2s all;
+}
+
+
+
+/*-------------------------------------------
+    forms
+------------------------------------------*/
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    background: lightgrey;
+    pointer-events: none;
+}
+
+input {
+    height: 42px;
+    border: 1px solid #d8d8d8;
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+    color: black;
+    padding: 0 18px;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,.1);
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+form {
+    display: flex;
+    flex-flow: column;
+}
+
+
+input::placeholder {
+    color: #97b2b9;
+    font-style: italic;
+}
+
+
+.error-msg {
+    color: #e96f6f;
+    font-style: italic;
+}
+
+
+
 
 
 /*-------------------------------------------
@@ -106,4 +197,46 @@ a {
 #main-wrapper {
     max-width: 800px;
     margin: 0 auto;
+}
+
+.column-m {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 100px 50px 0;
+}
+
+.column-m h1 {
+    text-align: center;
+}
+
+.tabs, .tabs li {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.tabs li {
+    width: 50%;
+}
+
+.tabs a {
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+.tabs li:first-child a {
+    border-radius: 20px 0 0;
+}
+
+.tabs li:last-child a {
+    border-radius: 0 20px 0 0;
+}
+
+a.tabs-active {
+    color: black;
+    background: white;
+    border: 2px solid #f4f4f4;
+    border-bottom: none;
 }

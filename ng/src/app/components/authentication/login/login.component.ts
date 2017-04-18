@@ -11,7 +11,6 @@ export class LoginComponent implements OnInit {
 
     private loginForm: FormGroup;
 
-
     login (): void {
         if (this.loginForm.valid) {
             const userCredentials = {

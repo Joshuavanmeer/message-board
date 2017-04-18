@@ -1,10 +1,11 @@
-<h1>Login</h1>
 
-<form novalidate autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
-    <label for="email">Email</label>
-    <input type="email" id="email" formControlName="email">
-    <label for="password">Password</label>
-    <input type="password" id="password" formControlName="password">
-    <button type="submit">Submit man</button>
-</form>
-
+<section class="column-m">
+    <h1>Login</h1>
+    <form novalidate autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
+        <input type="email" id="email" formControlName="email" placeholder="Email">
+        <span class="error-msg" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">This field may not be empty</span>
+        <input type="password" id="password" formControlName="password" placeholder="Password">
+        <span class="error-msg" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">This field may not be empty</span>
+        <button [disabled]="!loginForm.valid" class="button-l" type="submit">Login</button>
+    </form>
+</section>

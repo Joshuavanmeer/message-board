@@ -25,6 +25,7 @@ import { NotificationService } from "./components/notifications/notification.ser
 import { AuthenticationGuardService } from "./components/authentication/authentication.guard.service";
 import { DiscussionCreatorGuardService } from "./components/discussions/discussion-creator/discussion-creator-guard.service";
 import { CommentsService } from "./components/comments/comments.service";
+import { ProfileCardComponent } from './components/main-header/profile-card/profile-card.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import { CommentsService } from "./components/comments/comments.service";
         MainHeaderComponent,
         NotificationComponent,
         FlashMessageComponent,
-        LogoutComponent
+        LogoutComponent,
+        ProfileCardComponent
     ],
     imports: [
         BrowserModule,
