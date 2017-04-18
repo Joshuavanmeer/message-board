@@ -1,1 +1,3 @@
-<app-flash-message *ngIf="showFlashMessage"[config]="flashMessageConfig"></app-flash-message>
+<div class="flash-message-container" [@errorMsgs] *ngIf="showFlashMessage">
+    <app-flash-message [config]="flashMessageConfig"></app-flash-message>
+</div>
