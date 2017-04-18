@@ -29,7 +29,6 @@ export class RegisterComponent implements OnInit {
 
     updateAvatarSrc(avatarSrc: string) {
         this.avatarSrc = avatarSrc;
-        console.log(this.avatarSrc);
     }
 
 

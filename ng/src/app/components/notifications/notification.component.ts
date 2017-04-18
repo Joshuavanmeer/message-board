@@ -7,14 +7,14 @@ import {style, state, animate, transition, trigger} from "@angular/animations";
     templateUrl: 'notification.component.html',
     styleUrls: ['notification.component.css'],
     animations: [
-        trigger('errorMsgs', [
-            state('in', style({transform: 'translateX(0)'})),
+        trigger('flashMessage', [
+            state('in', style({transform: 'translateY(0)'})),
             transition('void => *', [
-                style({transform: 'translateX(-100%)'}),
-                animate(1000)
+                style({transform: 'translateY(-100%)'}),
+                animate(300)
             ]),
             transition('* => void', [
-                animate(1000, style({transform: 'translateX(100%)'}))
+                animate(300, style({transform: 'translateY(-100%)'}))
             ])
         ])
     ]

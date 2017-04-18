@@ -33,7 +33,7 @@ export class CommentsService {
                     new FlashMessage(
                         res.type,
                         res.message,
-                        5000
+                        3000
                     )
                 );
             });

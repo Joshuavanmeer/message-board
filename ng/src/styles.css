@@ -382,8 +382,10 @@ button.pagenumber-active {
     flash message
 ------------------------------------------*/
 
-.flashmessage-container {
-    transition: 1s all;
+.flash-message-container {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -391,29 +393,32 @@ button.pagenumber-active {
     height: 50px;
 }
 
-.error {
-
+app-flash-message {
+    width: 50%;
 }
 
-.success {
-
-}
-
-.center-helper {
+.flash-message {
+    width: 100%;
+    height: 50px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    width: 60%;
     border-radius: 0 0 20px 20px;
-    color: white;
-    font-size: 1rem;
-    font-family: 'Dosis', sans-serif;
-    text-transform: uppercase;
-    background: #21ca5d;
-    box-shadow: 2px 2px 3px rgba(0,0,0,.4);
 }
 
-.center-helper p {
+div.error {
+    background: red;
+}
+
+div.success {
+    background: #21ca5d;
+}
+
+div.error p,
+div.success p {
     color: white;
 }
+
+
+

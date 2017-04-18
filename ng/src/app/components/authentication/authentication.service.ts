@@ -4,7 +4,7 @@ import { HttpService } from "../services/http.service";
 import { NotificationService } from "../notifications/notification.service";
 import { Router } from "@angular/router";
 import { FlashMessage } from "../notifications/models/flashmessage.model";
-import { BehaviorSubject, Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import 'rxjs/Rx';
 
 @Injectable()
@@ -63,7 +63,7 @@ export class AuthenticationService {
                         new FlashMessage(
                             res.type,
                             res.message,
-                            5000
+                            3000
                         )
                     );
                     this.router.navigateByUrl('/auth/login');
@@ -73,7 +73,7 @@ export class AuthenticationService {
                         new FlashMessage(
                             err.type,
                             err.message,
-                            5000
+                            3000
                         )
                     )
                 }
@@ -100,7 +100,7 @@ export class AuthenticationService {
                         new FlashMessage(
                             res.type,
                             res.message,
-                            5000
+                            3000
                         )
                     );
                     this.updateAuthenticationState(true);
@@ -112,7 +112,7 @@ export class AuthenticationService {
                         new FlashMessage(
                             err.type,
                             err.message,
-                            5000
+                            3000
                         )
                     );
             });
@@ -127,7 +127,7 @@ export class AuthenticationService {
             new FlashMessage(
                 'success',
                 'You have been logged out',
-                5000
+                3000
             )
         );
         this.router.navigate(['/']);
