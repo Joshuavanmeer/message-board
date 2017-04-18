@@ -5,7 +5,7 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { DiscussionCreatorComponent } from "./components/discussions/discussion-creator/discussion-creator.component";
 import { DiscussionCreatorGuardService } from "./components/discussions/discussion-creator/discussion-creator-guard.service";
 import { DiscussionsComponent } from "./components/discussions/discussions.component";
-import {DiscussionPageComponent} from "./components/discussions/discussion-page/discussion-page.component";
+import { DiscussionPageComponent } from "./components/discussions/discussion-page/discussion-page.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'all-discussions', pathMatch: 'full' },

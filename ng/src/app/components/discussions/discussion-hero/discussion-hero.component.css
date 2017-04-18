@@ -1,0 +1,17 @@
+.discussion-hero-container {
+    background: #71868b;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.discussion-hero-container span,
+.discussion-hero-container p,
+.discussion-hero-container h3 {
+    color: white;
+}
+
+.discussion-hero-container img {
+    width: 65px;
+    height: 65px;
+}

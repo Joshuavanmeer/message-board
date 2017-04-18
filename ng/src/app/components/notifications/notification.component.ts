@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NotificationService } from "./notification.service";
 
 @Component({
@@ -8,16 +8,17 @@ import { NotificationService } from "./notification.service";
 })
 export class NotificationComponent implements OnInit, OnDestroy {
 
+
     private showFlashMessage: boolean = false;
     flashMessageConfig: any;
 
+
     private flashMessageSub;
+
 
     constructor(
         private notificationService: NotificationService
     ) { }
-
-
 
 
     ngOnInit() {

@@ -1,7 +1,7 @@
-<h3>Post a new comment</h3>
-
-<form novalidate autocomplete="off" [formGroup]="commentForm" (ngSubmit)="addNewComment()">
-    <label for="comment">Your comment</label>
-    <textarea id="comment" formControlName="comment"></textarea>
-    <button type="submit">Post new comment</button>
-</form>
+<section class="comment-creator-container">
+    <form novalidate autocomplete="off" [formGroup]="commentForm" (ngSubmit)="addNewComment()">
+        <textarea class="comment" formControlName="comment" placeholder="Your comment..."></textarea>
+        <span class="error-msg" *ngIf="commentForm.controls['comment'].hasError('required') && commentForm.controls['comment'].touched">This field may not be empty</span>
+        <button class="button-l" type="submit">Post new comment</button>
+    </form>
+</section>

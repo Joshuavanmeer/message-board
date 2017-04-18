@@ -1,7 +1,18 @@
-<p>
-  discussion-hero works!
-</p>
-<h3>{{discussion?.title}}</h3>
-<img src="{{discussion?.userImgSrc}}">
-<p>{{discussion?.body}}</p>
-<p>{{discussion?.username}}</p>
+<div class="discussion-container discussion-hero-container">
+    <header>
+        <h3>{{discussion?.title}}</h3>
+    </header>
+    <p class="discussion-body">{{discussion?.body}}</p>
+    <div class="flex">
+        <figure class="flex">
+            <img src="{{discussion?.userImgSrc}}">
+            <div>
+                <figcaption>
+                    <span class="username-s">{{discussion?.username}}</span>
+                </figcaption>
+            </div>
+        </figure>
+        <span class="timestamp-white annotation-s">{{discussion?.timeStamp}}</span>
+    </div>
+</div>
+<h3 class="header-m">{{discussion?.totalComments}} Comments</h3>

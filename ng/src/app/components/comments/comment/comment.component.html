@@ -1,6 +1,14 @@
 <div class="comment-container">
-    <h4>{{comment.body}}</h4>
-    <p>{{comment.timeStamp}}</p>
-    <p>{{comment.username}}</p>
-    <img src="{{comment.userImgSrc}}">
+    <p>{{comment.body}}</p>
+    <div class="flex">
+        <figure class="flex">
+            <img src="{{comment.userImgSrc}}">
+            <div>
+                <figcaption>
+                    <span class="username-s">{{comment.username}}</span>
+                </figcaption>
+            </div>
+        </figure>
+        <span class="timestamp annotation-s">{{comment.timeStamp}}</span>
+    </div>
 </div>

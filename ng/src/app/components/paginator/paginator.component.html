@@ -1,1 +1,9 @@
-<button *ngFor="let i of pages;" (click)="requestPage(i)" class="paginator-button">{{i}}</button>
+<div class="paginator-container">
+    <button class="paginator-button"
+            *ngFor="let page of pages;
+            let i = index;"
+            [ngClass]="{'pagenumber-active': activePage == page }"
+            (click)="requestPage(page)"
+            class="paginator-button">{{page}}
+    </button>
+</div>

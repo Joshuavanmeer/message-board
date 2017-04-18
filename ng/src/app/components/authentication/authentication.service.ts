@@ -100,7 +100,7 @@ export class AuthenticationService {
                         new FlashMessage(
                             res.type,
                             res.message,
-                            5000
+                            500000
                         )
                     );
                     this.updateAuthenticationState(true);

@@ -60,6 +60,12 @@ table {
     box-sizing: border-box;
 }
 
+.flex {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
 body {
     font-family: 'Hind', sans-serif;
 }
@@ -83,6 +89,10 @@ h1 {
 
 h3 {
     font-size: 30px;
+}
+
+.header-m {
+    font-size: 20px;
 }
 
 a {
@@ -145,6 +155,11 @@ a {
     forms
 ------------------------------------------*/
 
+form {
+    display: flex;
+    flex-flow: column;
+}
+
 button {
     cursor: pointer;
 }
@@ -168,13 +183,21 @@ input {
     font-weight: 400;
 }
 
-form {
-    display: flex;
-    flex-flow: column;
+textarea {
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,.1);
+    padding: 13px 15px;
 }
 
+textarea.comment {
+    height: 150px;
+    font-size: 1.2rem;
+    font-family: 'Hind', sans-serif;
+}
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: #97b2b9;
     font-style: italic;
 }
@@ -183,6 +206,86 @@ input::placeholder {
 .error-msg {
     color: #e96f6f;
     font-style: italic;
+}
+
+/*-------------------------------------------
+    meta
+------------------------------------------*/
+
+.timestamp {
+    margin-right: 20px;
+}
+
+.comment::before {
+    content: url('http://www.joshuavanmeer.nl/messageboard/img/icons/comment.svg');
+    position: relative;
+    top: 1px;
+    left: -5px;
+}
+
+.timestamp::before {
+    content: url('http://www.joshuavanmeer.nl/messageboard/img/icons/klok.svg');
+    position: relative;
+    top: 1px;
+    left: -5px;
+}
+
+.timestamp-white::before {
+    content: url('http://www.joshuavanmeer.nl/messageboard/img/icons/klok_white.svg');
+    position: relative;
+    top: 1px;
+    left: -5px;
+}
+
+
+/*-------------------------------------------
+    discussion
+-------------------------------------------*/
+
+.discussion-container {
+    padding: 30px;
+    background: #f4f4f4;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.discussion-container h3 {
+    margin-bottom: 20px;
+}
+
+.discussion-body {
+    margin-bottom: 20px;
+}
+
+
+figure img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+figure {
+    margin-right: 20px;
+}
+
+/*-------------------------------------------
+    comments
+------------------------------------------*/
+
+.comment-container {
+    padding: 30px;
+    background: #f4f4f4;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.comment-container p {
+    margin-bottom: 15px;
+}
+
+.comment-container img {
+    width: 25px;
+    height: 25px;
 }
 
 
@@ -239,4 +342,81 @@ a.tabs-active {
     background: white;
     border: 2px solid #f4f4f4;
     border-bottom: none;
+}
+
+
+/*-------------------------------------------
+    paginator
+------------------------------------------*/
+
+
+.paginator-button {
+    padding: 5px;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: #f4f4f4;
+    border: 1px solid #d3d3d3;
+    font-weight: 600;
+    transition: .2s all;
+}
+
+.paginator-button:hover:not(.pagenumber-active) {
+    background: #34b5df;
+    color: white;
+    border: none;
+    transform: scale(1.2);
+}
+
+
+
+button.pagenumber-active {
+    background: #34b5df;
+    color: white;
+    border: none;
+    pointer-events: none;
+}
+
+/*-------------------------------------------
+    flash message
+------------------------------------------*/
+
+.flashmessage-container {
+    transition: 1s all;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+}
+
+.error {
+
+}
+
+.success {
+
+}
+
+.center-helper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    border-radius: 0 0 20px 20px;
+    color: white;
+    font-size: 1rem;
+    font-family: 'Dosis', sans-serif;
+    text-transform: uppercase;
+    background: #21ca5d;
+    box-shadow: 2px 2px 3px rgba(0,0,0,.4);
+}
+
+.center-helper p {
+    color: white;
 }

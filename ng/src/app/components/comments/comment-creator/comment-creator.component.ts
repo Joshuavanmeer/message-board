@@ -28,6 +28,7 @@ export class CommentCreatorComponent implements OnInit {
                 this.commentForm.value.comment
             );
             this.commentsService.addNewComment(newComment, this.discussion.discussionId);
+            this.commentForm.controls['comment'].reset();
         }
     }
 
