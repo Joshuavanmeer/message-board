@@ -1,4 +1,5 @@
-import {Component, OnInit, style, state, animate, transition, trigger} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { style, state, animate, transition, trigger } from '@angular/animations';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {AuthenticationService} from "../authentication.service";
 
