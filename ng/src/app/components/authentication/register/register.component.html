@@ -2,13 +2,17 @@
     <app-avatar-picker (newAvatarSelectedEv)="updateAvatarSrc($event)"></app-avatar-picker>
     <form novalidate autocomplete="off" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
         <input type="text" id="name" formControlName="name" placeholder="Name">
-        <span class="error-msg" *ngIf="registerForm.controls['name'].hasError('required') && registerForm.controls['name'].touched">This field may not be empty</span>
+        <span [@errorMsg] class="error-msg" *ngIf="registerForm.controls['name'].hasError('pattern')">May only contain letters and spaces</span>
+        <span [@errorMsg] class="error-msg" *ngIf="registerForm.controls['name'].hasError('required') && registerForm.controls['name'].touched">This field may not be empty</span>
         <input type="text" id="username" formControlName="username" placeholder="Username">
-        <span class="error-msg" *ngIf="registerForm.controls['username'].hasError('required') && registerForm.controls['username'].touched">This field may not be empty</span>
+        <span [@errorMsg] class="error-msg" *ngIf="registerForm.controls['username'].hasError('required') && registerForm.controls['username'].touched">This field may not be empty</span>
+        <span [@errorMsg] class="error-msg" *ngIf="registerForm.controls['username'].hasError('pattern')">May only contain letters and spaces</span>
         <input type="email" id="email" formControlName="email" placeholder="Email">
-        <span class="error-msg" *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched">This field may not be empty</span>
+        <span [@errorMsg] class="error-msg" *ngIf="registerForm.controls['email'].hasError('pattern') && registerForm.controls['email'].touched">Not a valid email address</span>
+        <span [@errorMsg] class="error-msg" *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched">This field may not be empty</span>
         <input type="password" id="password" formControlName="password" placeholder="Password">
-        <span class="error-msg" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">This field may not be empty</span>
+        <span [@errorMsg] class="error-msg" *ngIf="registerForm.controls['password'].hasError('pattern')">May only contains letters and numbers</span>
+        <span [@errorMsg] class="error-msg" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">This field may not be empty</span>
         <button [disabled]="!registerForm.valid" class="button-l" type="submit">Make an account</button>
     </form>
 </div>

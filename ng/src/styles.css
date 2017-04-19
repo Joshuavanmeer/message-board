@@ -413,6 +413,7 @@ div.error {
 
 div.success {
     background: #21ca5d;
+    box-shadow: 2px 2px 7px rgba(0,0,0,.3);
 }
 
 div.error p,

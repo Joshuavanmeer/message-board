@@ -105,7 +105,7 @@ export class AuthenticationService {
                     );
                     this.updateAuthenticationState(true);
                     this.userDetailsSource.next(this.user);
-                    this.router.navigate(['/dashboard']);
+                    this.router.navigate(['/']);
             },
                 err => {
                     this.notificationService.showFlashMessage(

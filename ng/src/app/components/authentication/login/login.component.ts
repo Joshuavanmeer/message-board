@@ -9,13 +9,19 @@ import { AuthenticationService } from "../authentication.service";
     styleUrls: ['./login.component.css'],
     animations: [
         trigger('errorMsg', [
-            state('in', style({transform: 'translateX(0)'})),
+            state('show', style({
+                opacity: 1
+            })),
             transition('void => *', [
-                style({transform: 'translateX(-100%)'}),
-                animate(100)
+                style({
+                    opacity: 0
+                }),
+                animate(400)
             ]),
             transition('* => void', [
-                animate(100, style({transform: 'translateX(100%)'}))
+                animate(400, style({
+                    opacity: 0
+                }))
             ])
         ])
     ]

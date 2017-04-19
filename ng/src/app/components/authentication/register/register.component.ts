@@ -1,11 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { AuthenticationService } from "../authentication.service";
+import { style, state, trigger, animate, transition } from "@angular/animations";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.css'],
+    animations: [
+        trigger('errorMsg', [
+            state('show', style({
+                opacity: 1
+            })),
+            transition('void => *', [
+                style({
+                    opacity: 0
+                }),
+                animate(400)
+            ]),
+            transition('* => void', [
+                animate(400, style({
+                    opacity: 0
+                }))
+            ])
+        ])
+    ]
 })
 export class RegisterComponent implements OnInit {
 
@@ -41,10 +60,26 @@ export class RegisterComponent implements OnInit {
     ngOnInit () {
 
         this.registerForm = this.formBuilder.group({
-            name: ['', Validators.required],
-            username: ['', Validators.required],
-            email: ['', Validators.required],
-            password: ['', Validators.required]
+            name: ['', [
+                Validators.required,
+                Validators.pattern('[a-zA-Z ]*')
+                ]
+            ],
+            username: ['', [
+                Validators.required,
+                Validators.pattern('[a-zA-Z ]*')
+                ]
+            ],
+            email: ['', [
+                Validators.required,
+                Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)
+                ]
+            ],
+            password: ['', [
+                Validators.required,
+                Validators.pattern('[a-zA-Z0-9]*')
+                ]
+            ]
         });
 
     }

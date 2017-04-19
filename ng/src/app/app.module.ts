@@ -18,6 +18,7 @@ import { MainHeaderComponent } from "./components/main-header/main-header.compon
 import { LogoutComponent } from "./components/main-header/logout/logout.component";
 import { NotificationComponent } from "./components/notifications/notification.component";
 import { FlashMessageComponent } from "./components/notifications/flash-message/flash-message.component";
+import { ProfileCardComponent } from './components/main-header/profile-card/profile-card.component';
 // global services
 import { HttpService } from "./components/services/http.service";
 import { AuthenticationService } from "./components/authentication/authentication.service";
@@ -26,7 +27,6 @@ import { NotificationService } from "./components/notifications/notification.ser
 import { AuthenticationGuardService } from "./components/authentication/authentication.guard.service";
 import { DiscussionCreatorGuardService } from "./components/discussions/discussion-creator/discussion-creator-guard.service";
 import { CommentsService } from "./components/comments/comments.service";
-import { ProfileCardComponent } from './components/main-header/profile-card/profile-card.component';
 
 @NgModule({
     declarations: [
