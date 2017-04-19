@@ -1,0 +1,10 @@
+.discussion-creator-container {
+    background: #f4f4f4;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+}
+
+.discussion-creator-container textarea {
+    margin: 20px 0 0;
+}

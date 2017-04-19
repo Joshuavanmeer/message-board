@@ -1,4 +1,9 @@
 <header id="main-header">
+    <a [routerLink]="['/']">
+        <h1 id="main-logo">
+            <span>Message</span><span>board</span>
+        </h1>
+    </a>
     <nav>
         <ul>
             <li><a class="menu-item" *ngIf="!isLoggedIn"[routerLink]="['/auth/login']">Login</a></li>
@@ -11,7 +16,7 @@
                         </div>
                     </li>
                     <li>
-                        <a class="menu-item solid-btn" [routerLink]="['/start-new-discussion']">new discussion</a>
+                        <a class="menu-item solid-btn" [routerLink]="['/start-new-discussion']">+ start new discussion</a>
                     </li>
                 </ul>
             </li>

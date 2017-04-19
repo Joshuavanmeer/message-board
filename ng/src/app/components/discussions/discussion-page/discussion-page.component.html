@@ -1,3 +1,7 @@
 <app-discussion-hero></app-discussion-hero>
 <app-comment-list></app-comment-list>
 <app-comment-creator *ngIf="showCommentCreator" [discussion]="discussion"></app-comment-creator>
+<a class="authentication-notice" [routerLink]="['/auth/login']">
+    <p *ngIf="!showCommentCreator">Login to place a comment</p>
+</a>
+

@@ -1,9 +1,10 @@
-<h1>Make a new message</h1>
-
-<form novalidate autocomplete="off" [formGroup]="discussionForm" (ngSubmit)="addNewDiscussion()">
-    <label for="title">Message title</label>
-    <input type="input" id="title" formControlName="messageTitle">
-    <label for="body">More about your message</label>
-    <input type="text" id="body" formControlName="messageBody">
-    <button type="submit">Post new message</button>
-</form>
+<h1>Start a new discussion</h1>
+<section class="discussion-creator-container">
+    <form novalidate autocomplete="off" [formGroup]="discussionForm" (ngSubmit)="addNewDiscussion()">
+        <input type="input" formControlName="discussionTitle" placeholder="Title...">
+        <span [@errorMsg] class="error-msg" *ngIf="discussionForm.controls['discussionTitle'].hasError('required') && discussionForm.controls['discussionTitle'].touched">This field may not be empty</span>
+        <textarea class="discussion" type="text" formControlName="discussionBody" placeholder="Explanation..."></textarea>
+        <span [@errorMsg] class="error-msg" *ngIf="discussionForm.controls['discussionBody'].hasError('required') && discussionForm.controls['discussionBody'].touched">This field may not be empty</span>
+        <button class="button-l" type="submit">Start new discussion</button>
+    </form>
+</section>

@@ -2,7 +2,11 @@
     background: #34b5df;
     padding: 40px;
     margin-bottom: 70px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }
+
 
 ul, li {
     display: flex;
@@ -11,5 +15,14 @@ ul, li {
 
 ul {
     justify-content: flex-end;
+}
+
+a {
+    transition: .3s all;
+}
+
+a.menu-item:hover {
+    background: white;
+    color: #34b5df;
 }
 

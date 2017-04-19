@@ -7,9 +7,11 @@ import { CommentCreatorComponent } from "../../comments/comment-creator/comment-
 import { CommentListComponent } from "../../comments/comment-list/comment-list.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CommentComponent } from "../../comments/comment/comment.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     imports: [
+        RouterModule,
         CommonModule,
         ReactiveFormsModule,
         SharedModule,

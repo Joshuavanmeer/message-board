@@ -14,9 +14,19 @@
     display: flex;
     flex-flow: row nowrap;
     height: 40px;
-    background: lightblue;
+    background: white;
     border-radius: 20px;
     padding: 21px 23px 22px 1px;
+    font-weight: 600;
+    transition: .3s all;
+}
+
+.profile-card-container .username {
+    font-size: 1rem;
+}
+
+.profile-card-container:hover {
+    background: lightblue !important;
 }
 
 
@@ -26,6 +36,7 @@ ul {
     width: 150px;
     background: #f4f4f4;
     border-radius: 10px;
+    box-shadow: 0px 4px 7px rgba(0,0,0,.3);
 }
 
 li {
