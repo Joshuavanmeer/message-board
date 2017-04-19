@@ -1,4 +1,5 @@
 # mean-auth
+Live version:
 
-https://powerful-tundra-52728.herokuapp.com/
+https://floating-sea-91916.herokuapp.com/
 
